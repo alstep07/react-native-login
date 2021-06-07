@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
 import {StyleSheet, Text, View, Pressable, TextInput} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
@@ -8,8 +10,8 @@ const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
-  const onAuthStateChanged = user => {
-    setUser(user);
+  const onAuthStateChanged = newUser => {
+    setUser(newUser);
     if (initializing) {
       setInitializing(false);
     }
@@ -41,6 +43,12 @@ const App = () => {
       });
   };
 
+  const logout = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+  };
+
   const handlePasswordChange = text => {
     setPassword(text);
   };
@@ -51,36 +59,35 @@ const App = () => {
 
   if (initializing) return null;
 
-  if (!user) {
-    return (
-      <View>
-        <Text>Login</Text>
-      </View>
-    );
-  }
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Wellcome {user.email}</Text>
-      <TextInput
-        onChangeText={handleEmailChange}
-        value={email}
-        placeholder="email"
-      />
-      <TextInput
-        onChangeText={handlePasswordChange}
-        value={password}
-        placeholder="password"
-      />
-      <View style={styles.buttons}>
-        <Pressable style={styles.button} onPress={createNewUser}>
-          <Text style={styles.buttonText}>Create user</Text>
-        </Pressable>
-        <Pressable style={styles.button} onPress={createNewUser}>
-          <Text style={styles.buttonText}>Logout</Text>
-        </Pressable>
+    <NavigationContainer>
+      <View style={styles.container}>
+        {user ? (
+          <>
+            <Text style={styles.title}>Wellcome {user.email}</Text>
+            <Pressable style={styles.button} onPress={logout}>
+              <Text style={styles.buttonText}>Logout</Text>
+            </Pressable>
+          </>
+        ) : (
+          <>
+            <TextInput
+              onChangeText={handleEmailChange}
+              value={email}
+              placeholder="email"
+            />
+            <TextInput
+              onChangeText={handlePasswordChange}
+              value={password}
+              placeholder="password"
+            />
+            <Pressable style={styles.button} onPress={createNewUser}>
+              <Text style={styles.buttonText}>Create user</Text>
+            </Pressable>
+          </>
+        )}
       </View>
-    </View>
+    </NavigationContainer>
   );
 };
 
@@ -102,13 +109,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
+    width: '100%',
     marginVertical: 10,
-    width: 200,
+    paddingVertical: 22,
     backgroundColor: 'tomato',
-    padding: 12,
+    borderRadius: 10,
   },
   buttonText: {
     textAlign: 'center',
+    fontWeight: '700',
+    fontSize: 18,
+    lineHeight: 20,
+    color: '#fff',
   },
 });
 
