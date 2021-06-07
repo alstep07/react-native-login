@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699933552558",
+    "project_id": "voypost-login-task-c5cf4",
+    "storage_bucket": "voypost-login-task-c5cf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699933552558:android:7db9b0ae73720a9edfa23f",
+        "android_client_info": {
+          "package_name": "com.logintask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699933552558-2ms2jqgb80mgi5otqo9dq81aek99fe77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAquH9VPJJ3pQwJitbz2Q4m_JYL0SDJ79E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699933552558-2ms2jqgb80mgi5otqo9dq81aek99fe77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
