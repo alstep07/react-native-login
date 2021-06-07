@@ -1,12 +1,40 @@
 import React, {useState, useEffect} from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {StyleSheet, Text, View, Pressable, TextInput} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-const App = () => {
+const LoginScreen = ({handleLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    handleLogin(email, password);
+    setEmail('');
+    setPassword('');
+  };
+
+  return (
+    <>
+      <TextInput
+        onChangeText={text => setEmail(text)}
+        value={email}
+        placeholder="email"
+      />
+      <TextInput
+        onChangeText={text => setPassword(text)}
+        value={password}
+        placeholder="password"
+      />
+      <Pressable style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Create user</Text>
+      </Pressable>
+    </>
+  );
+};
+
+const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
@@ -22,12 +50,10 @@ const App = () => {
     return subscriber;
   }, []);
 
-  const createNewUser = () => {
+  const createNewUser = (email, password) => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        setEmail('');
-        setPassword('');
         console.log('User account created & signed in!');
       })
       .catch(error => {
@@ -49,14 +75,6 @@ const App = () => {
       .then(() => console.log('User signed out!'));
   };
 
-  const handlePasswordChange = text => {
-    setPassword(text);
-  };
-
-  const handleEmailChange = text => {
-    setEmail(text);
-  };
-
   if (initializing) return null;
 
   return (
@@ -64,27 +82,13 @@ const App = () => {
       <View style={styles.container}>
         {user ? (
           <>
-            <Text style={styles.title}>Wellcome {user.email}</Text>
+            <Text style={styles.title}>Wellcome back</Text>
             <Pressable style={styles.button} onPress={logout}>
               <Text style={styles.buttonText}>Logout</Text>
             </Pressable>
           </>
         ) : (
-          <>
-            <TextInput
-              onChangeText={handleEmailChange}
-              value={email}
-              placeholder="email"
-            />
-            <TextInput
-              onChangeText={handlePasswordChange}
-              value={password}
-              placeholder="password"
-            />
-            <Pressable style={styles.button} onPress={createNewUser}>
-              <Text style={styles.buttonText}>Create user</Text>
-            </Pressable>
-          </>
+          <LoginScreen handleLogin={createNewUser} />
         )}
       </View>
     </NavigationContainer>
