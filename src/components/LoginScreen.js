@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Text, TextInput, Pressable, StyleSheet} from 'react-native';
 import {createNewUser} from '../services/loginService';
 
-const LoginScreen = ({handleLogin}) => {
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,6 +10,7 @@ const LoginScreen = ({handleLogin}) => {
     createNewUser(email, password);
     setEmail('');
     setPassword('');
+    navigation.navigate('Home');
   };
 
   return (
