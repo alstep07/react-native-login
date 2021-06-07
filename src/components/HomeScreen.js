@@ -1,19 +1,25 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable} from 'react-native';
+import {StyleSheet, View, Image, Text, Pressable} from 'react-native';
 import {logout} from '../services/loginService';
+import logo from '../assets/images/logo.png';
 
 const HomeScreen = ({userEmail}) => {
   return (
-    <>
+    <View style={styles.container}>
       <Text>{userEmail}</Text>
+      <Image source={logo} />
       <Pressable style={styles.button} onPress={logout}>
         <Text style={styles.buttonText}>Logout</Text>
       </Pressable>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
   button: {
     width: '100%',
     marginVertical: 10,
