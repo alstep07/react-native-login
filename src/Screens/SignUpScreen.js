@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, SafeAreaView} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {createNewUser} from '../services/loginService';
 import Title from '../components/Title';
 import Button from '../components/Button';
@@ -17,7 +17,6 @@ export const SignUpScreen = ({navigation}) => {
       setEmail('');
       setPassword('');
       setUsername('');
-      navigation.navigate('Home');
     } catch (error) {
       console.error(error);
     }
@@ -40,7 +39,7 @@ export const SignUpScreen = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Title text="Create an Account" />
       </View>
@@ -72,7 +71,7 @@ export const SignUpScreen = ({navigation}) => {
           onPress={navigateToLoginScreen}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

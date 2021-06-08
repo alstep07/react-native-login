@@ -4,12 +4,10 @@ import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
 import Button from '../components/Button';
 
-export const HomeScreen = ({navigation, user}) => {
+export const HomeScreen = ({user}) => {
   const handlePress = () => {
     logout();
   };
-
-  console.log(user);
 
   return (
     <View style={styles.container}>
