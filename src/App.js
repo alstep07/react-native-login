@@ -28,7 +28,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        {user ? <HomeScreen username={user.displayName} /> : <LoginScreen />}
+        {/* {user ? <HomeScreen username={user.displayName} /> : <LoginScreen />} */}
+        {/* <HomeScreen username={user.displayName} /> */}
+        {/* <SignUpScreen /> */}
+        <LoginScreen />
       </View>
     </NavigationContainer>
   );
@@ -37,7 +40,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 24,
     flexDirection: 'column',
   },
   title: {

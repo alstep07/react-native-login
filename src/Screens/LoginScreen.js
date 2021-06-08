@@ -44,8 +44,8 @@ export const LoginScreen = () => {
       <View style={styles.buttonsContainer}>
         <Button onPress={handleSubmit} title="Log In" />
         <Notification
-          text="Already have an account?"
-          buttonTitle="Log In"
+          text="Don’t you have an account yet?"
+          buttonTitle="Sign Up"
           onPress={() => {}}
         />
       </View>
@@ -59,15 +59,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   titleContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
   },
   inputsContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'flex-start',
   },
   buttonsContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'flex-start',
   },
 });
