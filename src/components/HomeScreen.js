@@ -3,15 +3,14 @@ import {StyleSheet, View, Image, Text, Pressable} from 'react-native';
 import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
 
-const HomeScreen = ({userEmail, navigation}) => {
+const HomeScreen = ({username}) => {
   const handlePress = () => {
     logout();
-    navigation.navigate('Login');
   };
 
   return (
     <View style={styles.container}>
-      <Text>{userEmail}</Text>
+      <Text>{username}</Text>
       <Image source={logo} />
       <Pressable style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Logout</Text>

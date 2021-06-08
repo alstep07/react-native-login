@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import {Text, TextInput, Pressable, StyleSheet} from 'react-native';
 import {createNewUser} from '../services/loginService';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   const handleSubmit = () => {
-    createNewUser(email, password);
+    createNewUser(email, password, username);
     setEmail('');
     setPassword('');
-    navigation.navigate('Home');
   };
 
   return (
@@ -18,12 +18,17 @@ const LoginScreen = ({navigation}) => {
       <TextInput
         onChangeText={text => setEmail(text)}
         value={email}
-        placeholder="email"
+        placeholder="Email"
+      />
+      <TextInput
+        onChangeText={text => setUsername(text)}
+        value={username}
+        placeholder="Name"
       />
       <TextInput
         onChangeText={text => setPassword(text)}
         value={password}
-        placeholder="password"
+        placeholder="Password"
       />
       <Pressable style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Create user</Text>
