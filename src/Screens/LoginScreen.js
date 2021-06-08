@@ -15,7 +15,6 @@ export const LoginScreen = ({navigation}) => {
       await login(email, password);
       setEmail('');
       setPassword('');
-      navigation.navigate('Home');
     } catch (error) {
       console.error(error);
     }

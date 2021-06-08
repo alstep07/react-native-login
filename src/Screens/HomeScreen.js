@@ -7,14 +7,15 @@ import Button from '../components/Button';
 export const HomeScreen = ({navigation, user}) => {
   const handlePress = () => {
     logout();
-    navigation.navigate('Login');
   };
+
+  console.log(user);
 
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <Image source={logo} />
-        <Text style={styles.username}>{user?.displayName}</Text>
+        <Text style={styles.username}>{user.displayName}</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button title="Logout" onPress={handlePress} />

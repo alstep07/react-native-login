@@ -29,10 +29,17 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
-        <Stack.Screen name="Home" component={HomeScreen} user={user} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Sign Up" component={SignUpScreen} />
+      <Stack.Navigator>
+        {user ? (
+          <Stack.Screen name="Home">
+            {props => <HomeScreen {...props} user={user} />}
+          </Stack.Screen>
+        ) : (
+          <>
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Sign Up" component={SignUpScreen} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
