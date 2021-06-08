@@ -12,7 +12,6 @@ const Button = ({title, onPress}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginVertical: 10,
     paddingVertical: 22,
     backgroundColor: 'tomato',
     borderRadius: 10,

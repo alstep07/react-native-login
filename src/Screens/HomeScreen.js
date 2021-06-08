@@ -11,11 +11,13 @@ export const HomeScreen = ({username}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.user}>
+      <View style={styles.userContainer}>
         <Image source={logo} />
         <Text style={styles.username}>{username}</Text>
       </View>
-      <Button title="Logout" onPress={handlePress} />
+      <View style={styles.buttonContainer}>
+        <Button title="Logout" onPress={handlePress} />
+      </View>
     </View>
   );
 };
@@ -25,9 +27,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  user: {
-    flex: 1,
+  userContainer: {
+    flex: 2,
     alignItems: 'center',
+  },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignSelf: 'stretch',
   },
   username: {
     padding: 8,
@@ -39,6 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     textAlign: 'center',
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowRadius: 22,
+    elevation: 10,
   },
 });
