@@ -33,8 +33,8 @@ export const createNewUser = async (email, password, displayName) => {
 
 export const login = async (email, password) => {
   try {
-    const user = await auth().signInWithEmailAndPassword({email, password});
-    console.log(user);
+    const userInfo = await auth().signInWithEmailAndPassword(email, password);
+    console.log(userInfo);
   } catch (error) {
     console.error(error);
   }

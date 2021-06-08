@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, View, Image, Text, Pressable} from 'react-native';
+import {StyleSheet, View, Image, Text} from 'react-native';
 import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
 import Button from '../components/Button';
 
-const HomeScreen = ({username}) => {
+export const HomeScreen = ({username}) => {
   const handlePress = () => {
     logout();
   };
@@ -25,20 +25,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  button: {
-    width: '100%',
-    marginVertical: 10,
-    paddingVertical: 22,
-    backgroundColor: 'tomato',
-    borderRadius: 10,
-  },
-  buttonText: {
-    textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 18,
-    lineHeight: 20,
-    color: '#fff',
-  },
   user: {
     flex: 1,
     alignItems: 'center',
@@ -56,5 +42,3 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
   },
 });
-
-export default HomeScreen;

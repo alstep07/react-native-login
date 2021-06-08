@@ -2,16 +2,23 @@ import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 
 const Input = ({placeholder, value, onChangeText}) => {
-  return <Text style={styles.title}>{text}</Text>;
+  return (
+    <TextInput
+      style={styles.input}
+      onChangeText={onChangeText}
+      value={value}
+      placeholder={placeholder}
+      placeholderTextColor="#a3a3a3"
+    />
+  );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    marginTop: 0,
-    textAlign: 'center',
-    fontSize: 22,
-    fontWeight: '500',
+  input: {
+    paddingVertical: 7,
+    borderBottomColor: '#8a898e',
+    borderBottomWidth: 1,
   },
 });
 
-export default Title;
+export default Input;
