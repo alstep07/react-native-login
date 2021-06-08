@@ -11,11 +11,16 @@ export const SignUpScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
-  const handleSubmit = () => {
-    createNewUser(email, password, username);
-    setEmail('');
-    setPassword('');
-    setUsername('');
+  const handleSubmit = async () => {
+    try {
+      await createNewUser(email, password, username);
+      setEmail('');
+      setPassword('');
+      setUsername('');
+      navigation.navigate('Home');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const onEmailInputChange = text => {

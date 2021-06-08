@@ -4,7 +4,7 @@ import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
 import Button from '../components/Button';
 
-export const HomeScreen = ({navigation, username}) => {
+export const HomeScreen = ({navigation, user}) => {
   const handlePress = () => {
     logout();
     navigation.navigate('Login');
@@ -14,7 +14,7 @@ export const HomeScreen = ({navigation, username}) => {
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <Image source={logo} />
-        <Text style={styles.username}>{username}</Text>
+        <Text style={styles.username}>{user?.displayName}</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button title="Logout" onPress={handlePress} />

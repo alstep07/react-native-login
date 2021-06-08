@@ -30,7 +30,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} user={user} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Sign Up" component={SignUpScreen} />
       </Stack.Navigator>
