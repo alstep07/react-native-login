@@ -40,16 +40,19 @@ export const SignUpScreen = () => {
           value={email}
           onChangeText={onEmailInputChange}
           placeholder="Email"
+          icon="envelope"
         />
         <Input
           value={username}
           onChangeText={onUsernameInputChange}
           placeholder="Name"
+          icon="info-circle"
         />
         <Input
           value={password}
           onChangeText={onPasswordInputChange}
           placeholder="Password"
+          icon="lock"
         />
       </View>
       <View style={styles.buttonsContainer}>

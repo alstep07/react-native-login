@@ -34,11 +34,13 @@ export const LoginScreen = () => {
           value={email}
           onChangeText={onEmailInputChange}
           placeholder="Email"
+          icon="envelope"
         />
         <Input
           value={password}
           onChangeText={onPasswordInputChange}
           placeholder="Password"
+          icon="lock"
         />
       </View>
       <View style={styles.buttonsContainer}>

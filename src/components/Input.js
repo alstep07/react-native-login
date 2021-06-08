@@ -1,26 +1,46 @@
 import React from 'react';
-import {TextInput, StyleSheet} from 'react-native';
+import {View, TextInput, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Input = ({placeholder, value, onChangeText}) => {
+const Input = ({icon, placeholder, value, onChangeText}) => {
   return (
-    <TextInput
-      style={styles.input}
-      onChangeText={onChangeText}
-      value={value}
-      placeholder={placeholder}
-      placeholderTextColor="#a3a3a3"
-    />
+    <View style={styles.inputContainer}>
+      <Icon
+        style={styles.icon}
+        name={icon}
+        size={icon === 'envelope' ? 16 : 20}
+        color="#8A898E"
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={value}
+        placeholder={placeholder}
+        placeholderTextColor="#8A898E"
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  input: {
+  inputContainer: {
+    paddingVertical: 11,
+    flex: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 30,
+    borderBottomColor: '#a3a3a3',
+    borderBottomWidth: 1,
+  },
+  input: {
+    padding: 0,
     fontSize: 16,
     lineHeight: 24,
-    paddingVertical: 7,
-    borderBottomColor: '#8a898e',
-    borderBottomWidth: 1,
+  },
+  icon: {
+    width: 30,
+    textAlign: 'center',
+    lineHeight: 24,
   },
 });
 

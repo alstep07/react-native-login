@@ -30,8 +30,8 @@ const App = () => {
       <View style={styles.container}>
         {/* {user ? <HomeScreen username={user.displayName} /> : <LoginScreen />} */}
         {/* <HomeScreen username={user.displayName} /> */}
-        {/* <SignUpScreen /> */}
-        <LoginScreen />
+        <SignUpScreen />
+        {/* <LoginScreen /> */}
       </View>
     </NavigationContainer>
   );
