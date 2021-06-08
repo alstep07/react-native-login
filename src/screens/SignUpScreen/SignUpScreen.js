@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {createNewUser} from '../../services/loginService';
+import {createNewUser} from '../../services/auth';
 import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';

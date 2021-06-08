@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {login} from '../../services/loginService';
+import {login} from '../../services/auth';
 import Title from '../../components/Title/Title';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
