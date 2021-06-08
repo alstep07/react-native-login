@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import {SignUpScreen} from './screens/SignUpScreen/SignUpScreen';
-import {LoginScreen} from './screens/LoginScreen';
+import {LoginScreen} from './screens/LoginScreen/LoginScreen';
 import {HomeScreen} from './screens/HomeScreen/HomeScreen';
 
 const App = () => {
@@ -13,13 +13,14 @@ const App = () => {
 
   const onAuthStateChanged = newUser => {
     setUser(newUser);
-    initializing && setInitializing(false);
+    if (initializing) {
+      setInitializing(false);
+    }
   };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (initializing) {

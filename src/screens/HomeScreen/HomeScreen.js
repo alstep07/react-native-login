@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {logout} from '../../services/loginService';
-import logo from '../assets/images/logo.png';
+import logo from '../../assets/images/logo.png';
 import Button from '../../components/Button/Button';
 import styles from './style';
 
