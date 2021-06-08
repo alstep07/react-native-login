@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {createNewUser} from '../services/loginService';
-import Title from '../components/Title';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import Notification from '../components/Notification';
+import {View} from 'react-native';
+import {createNewUser} from '../../services/loginService';
+import Title from '../../components/Title/Title';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import Notification from '../../components/Notification/Notification';
+import styles from './style';
 
 export const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -74,23 +75,3 @@ export const SignUpScreen = ({navigation}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 24,
-    flex: 1,
-    flexDirection: 'column',
-  },
-  titleContainer: {
-    flex: 3,
-    justifyContent: 'center',
-  },
-  inputsContainer: {
-    flex: 3,
-    justifyContent: 'flex-start',
-  },
-  buttonsContainer: {
-    flex: 2,
-    justifyContent: 'flex-start',
-  },
-});

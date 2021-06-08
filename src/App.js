@@ -3,9 +3,9 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
-import {SignUpScreen} from './screens/SignUpScreen';
+import {SignUpScreen} from './screens/SignUpScreen/SignUpScreen';
 import {LoginScreen} from './screens/LoginScreen';
-import {HomeScreen} from './screens/HomeScreen';
+import {HomeScreen} from './screens/HomeScreen/HomeScreen';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
@@ -13,12 +13,13 @@ const App = () => {
 
   const onAuthStateChanged = newUser => {
     setUser(newUser);
-    if (initializing) setInitializing(false);
+    initializing && setInitializing(false);
   };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (initializing) {
