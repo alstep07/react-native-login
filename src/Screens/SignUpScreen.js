@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
 import {createNewUser} from '../services/loginService';
 import Title from '../components/Title';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Notification from '../components/Notification';
 
-export const SignUpScreen = () => {
+export const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -30,8 +30,12 @@ export const SignUpScreen = () => {
     setUsername(text);
   };
 
+  const navigateToLoginScreen = () => {
+    navigation.navigate('Login');
+  };
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
         <Title text="Create an Account" />
       </View>
@@ -60,20 +64,21 @@ export const SignUpScreen = () => {
         <Notification
           text="Already have an account?"
           buttonTitle="Log In"
-          onPress={() => {}}
+          onPress={navigateToLoginScreen}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 24,
     flex: 1,
     flexDirection: 'column',
   },
   titleContainer: {
-    flex: 2,
+    flex: 3,
     justifyContent: 'center',
   },
   inputsContainer: {

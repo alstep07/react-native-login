@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import 'react-native-gesture-handler';
+import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {StyleSheet, View} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {SignUpScreen} from './screens/SignUpScreen';
 import {LoginScreen} from './screens/LoginScreen';
@@ -25,30 +25,17 @@ const App = () => {
     return null;
   }
 
+  const Stack = createStackNavigator();
+
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        {/* {user ? <HomeScreen username={user.displayName} /> : <LoginScreen />} */}
-        {/* <HomeScreen username={user.displayName} /> */}
-        <SignUpScreen />
-        {/* <LoginScreen /> */}
-      </View>
+      <Stack.Navigator initialRouteName={user ? 'Home' : 'Login'}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Sign Up" component={SignUpScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    flexDirection: 'column',
-  },
-  title: {
-    marginTop: 0,
-    textAlign: 'center',
-    fontSize: 22,
-    fontWeight: '500',
-  },
-});
 
 export default App;

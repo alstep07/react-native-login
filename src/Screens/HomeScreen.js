@@ -4,9 +4,10 @@ import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
 import Button from '../components/Button';
 
-export const HomeScreen = ({username}) => {
+export const HomeScreen = ({navigation, username}) => {
   const handlePress = () => {
     logout();
+    navigation.navigate('Login');
   };
 
   return (
@@ -24,15 +25,17 @@ export const HomeScreen = ({username}) => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 24,
     flex: 1,
     alignItems: 'center',
   },
   userContainer: {
-    flex: 2,
+    marginTop: 80,
+    flex: 5,
     alignItems: 'center',
   },
   buttonContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'flex-start',
     alignSelf: 'stretch',
   },

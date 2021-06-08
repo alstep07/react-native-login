@@ -6,14 +6,23 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import Notification from '../components/Notification';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = () => {
-    login(email, password);
-    setEmail('');
-    setPassword('');
+  const handleSubmit = async () => {
+    try {
+      await login(email, password);
+      setEmail('');
+      setPassword('');
+      navigation.navigate('Home');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const navigateToSignUpScreen = () => {
+    navigation.navigate('Sign Up');
   };
 
   const onEmailInputChange = text => {
@@ -48,7 +57,7 @@ export const LoginScreen = () => {
         <Notification
           text="Don’t you have an account yet?"
           buttonTitle="Sign Up"
-          onPress={() => {}}
+          onPress={navigateToSignUpScreen}
         />
       </View>
     </View>
@@ -57,11 +66,12 @@ export const LoginScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 24,
     flex: 1,
     flexDirection: 'column',
   },
   titleContainer: {
-    flex: 2,
+    flex: 3,
     justifyContent: 'center',
   },
   inputsContainer: {
