@@ -31,4 +31,11 @@ export const createNewUser = async (email, password, displayName) => {
   }
 };
 
-export const login = (email, password) => {};
+export const login = async (email, password) => {
+  try {
+    const user = await auth().signInWithEmailAndPassword({email, password});
+    console.log(user);
+  } catch (error) {
+    console.error(error);
+  }
+};

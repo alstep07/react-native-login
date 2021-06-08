@@ -3,8 +3,8 @@ import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {StyleSheet, View} from 'react-native';
 import auth from '@react-native-firebase/auth';
-import LoginScreen from './components/LoginScreen';
-import HomeScreen from './components/HomeScreen';
+import SignUpScreen from './Screens/SignUpScreen';
+import HomeScreen from './Screens/HomeScreen';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
@@ -24,12 +24,10 @@ const App = () => {
     return null;
   }
 
-  console.log(user.displayName);
-
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        {user ? <HomeScreen username={user.displayName} /> : <LoginScreen />}
+        {user ? <HomeScreen username={user.displayName} /> : <SignUpScreen />}
       </View>
     </NavigationContainer>
   );

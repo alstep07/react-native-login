@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {Text, TextInput, Pressable, StyleSheet} from 'react-native';
 import {createNewUser} from '../services/loginService';
+import Title from '../components/Title';
+import Button from '../components/Button';
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -15,6 +17,7 @@ const LoginScreen = () => {
 
   return (
     <>
+      <Title text="Create an Account" />
       <TextInput
         onChangeText={text => setEmail(text)}
         value={email}
@@ -30,28 +33,9 @@ const LoginScreen = () => {
         value={password}
         placeholder="Password"
       />
-      <Pressable style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Create user</Text>
-      </Pressable>
+      <Button onPress={handleSubmit} title="Sign Up" />
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    width: '100%',
-    marginVertical: 10,
-    paddingVertical: 22,
-    backgroundColor: 'tomato',
-    borderRadius: 10,
-  },
-  buttonText: {
-    textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 18,
-    lineHeight: 20,
-    color: '#fff',
-  },
-});
-
-export default LoginScreen;
+export default SignUpScreen;

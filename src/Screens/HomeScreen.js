@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Image, Text, Pressable} from 'react-native';
 import {logout} from '../services/loginService';
 import logo from '../assets/images/logo.png';
+import Button from '../components/Button';
 
 const HomeScreen = ({username}) => {
   const handlePress = () => {
@@ -10,11 +11,11 @@ const HomeScreen = ({username}) => {
 
   return (
     <View style={styles.container}>
-      <Text>{username}</Text>
-      <Image source={logo} />
-      <Pressable style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Logout</Text>
-      </Pressable>
+      <View style={styles.user}>
+        <Image source={logo} />
+        <Text style={styles.username}>{username}</Text>
+      </View>
+      <Button title="Logout" onPress={handlePress} />
     </View>
   );
 };
@@ -37,6 +38,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 20,
     color: '#fff',
+  },
+  user: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  username: {
+    padding: 8,
+    minWidth: 140,
+    marginTop: -17,
+    fontSize: 14,
+    lineHeight: 16,
+    fontWeight: '700',
+    backgroundColor: '#fff',
+    textAlign: 'center',
+    borderRadius: 10,
+    shadowColor: '#000',
   },
 });
 
