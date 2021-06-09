@@ -13,3 +13,12 @@ export const addUserToFirestore = async (userUid, userName) => {
     console.error(error);
   }
 };
+
+export const getUserNameFromDB = async userUid => {
+  try {
+    const user = await usersCollection.doc(userUid).get();
+    return user._data.name;
+  } catch (error) {
+    console.error(error);
+  }
+};
