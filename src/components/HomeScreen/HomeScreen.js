@@ -5,7 +5,7 @@ import logo from '../../assets/images/logo.png';
 import Button from '../Unknown/Button/Button';
 import styles from './style';
 
-export const HomeScreen = ({user}) => {
+const HomeScreen = ({user}) => {
   const handlePress = () => {
     logout();
   };
@@ -22,3 +22,5 @@ export const HomeScreen = ({user}) => {
     </View>
   );
 };
+
+export default HomeScreen;

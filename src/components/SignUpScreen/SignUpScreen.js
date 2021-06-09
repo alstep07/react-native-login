@@ -7,7 +7,7 @@ import Input from '../Unknown/Input/Input';
 import Notification from '../Unknown/Notification/Notification';
 import styles from './style';
 
-export const SignUpScreen = ({navigation}) => {
+const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -75,3 +75,5 @@ export const SignUpScreen = ({navigation}) => {
     </View>
   );
 };
+
+export default SignUpScreen;
