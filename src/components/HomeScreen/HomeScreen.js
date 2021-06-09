@@ -7,7 +7,7 @@ import Button from '../Unknown/Button/Button';
 import styles from './style';
 
 const HomeScreen = () => {
-  const userName = useUserContext();
+  const username = useUserContext();
 
   const handlePress = () => {
     logout();
@@ -17,7 +17,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <Image source={logo} />
-        <Text style={styles.username}>{userName}</Text>
+        <Text style={styles.username}>{username}</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button title="Logout" onPress={handlePress} />

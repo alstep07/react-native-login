@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {UserContext} from './context';
+import {getUserNameFromDB} from './services/firestore';
 import 'react-native-gesture-handler';
-import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {Stack} from './navigation';
 import auth from '@react-native-firebase/auth';
 import SignUpScreen from './components/SignUpScreen/SignUpScreen';
 import LoginScreen from './components/LoginScreen/LoginScreen';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import {getUserNameFromDB} from './services/firestore';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
-  const [userName, setUserName] = useState('');
+  const [username, setUsername] = useState('');
 
   const onAuthStateChanged = newUser => {
     setUser(newUser);
@@ -24,12 +24,11 @@ const App = () => {
 
   useEffect(() => {
     if (user) {
-      const getUserName = async () => {
+      const updateUserName = async () => {
         const userNameFromDB = await getUserNameFromDB(user.uid);
-        console.log(userNameFromDB);
-        setUserName(userNameFromDB);
+        setUsername(userNameFromDB);
       };
-      getUserName();
+      updateUserName();
     }
   }, [user]);
 
@@ -43,11 +42,9 @@ const App = () => {
     return null;
   }
 
-  const Stack = createStackNavigator();
-
   return (
     <NavigationContainer>
-      <UserContext.Provider value={userName}>
+      <UserContext.Provider value={username}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
