@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text} from 'react-native';
+import Typography from '../Unknown/Typography/Typography';
 import styles from './style';
 
 const LibraryScreen = () => {
-  return <Text>Library</Text>;
+  return <Typography>Library</Typography>;
 };
 
 export default LibraryScreen;

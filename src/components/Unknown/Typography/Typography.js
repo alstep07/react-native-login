@@ -2,8 +2,8 @@ import React from 'react';
 import {Text} from 'react-native';
 import styles from './style';
 
-const Title = ({text}) => {
+const Typography = ({text}) => {
   return <Text style={styles.title}>{text}</Text>;
 };
 
-export default Title;
+export default Typography;

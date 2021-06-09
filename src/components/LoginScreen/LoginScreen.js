@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import Title from '../Unknown/Title/Title';
+import Typography from '../Unknown/Typography/Typography';
 import Button from '../Unknown/Button/Button';
 import Input from '../Unknown/Input/Input';
 import Notification from '../Unknown/Notification/Notification';
@@ -31,7 +31,7 @@ const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
       start={{x: 0, y: 0.4}}
       end={{x: 1, y: 0.6}}>
       <View style={styles.titleContainer}>
-        <Title text="Wellcome Back" />
+        <Typography text="Wellcome Back" />
       </View>
       <View style={styles.inputsContainer}>
         <Input

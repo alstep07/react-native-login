@@ -7,6 +7,8 @@ const theme = {
     buttonGradientTo: '#cc8389',
     textDark: '#1b181c',
     shadow: 'rgba(0, 0, 0, 0.6)',
+    tab: '#c2c2c2',
+    tabActive: '#d49499',
   },
 };
 
