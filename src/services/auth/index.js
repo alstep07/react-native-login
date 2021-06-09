@@ -1,4 +1,7 @@
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+const usersCollection = firestore().collection('users');
 
 export const logout = async () => {
   try {
@@ -11,12 +14,18 @@ export const logout = async () => {
 
 export const createNewUser = async (email, password, displayName) => {
   try {
-    const newUser = await auth().createUserWithEmailAndPassword(
+    const newUserInfo = await auth().createUserWithEmailAndPassword(
       email,
       password,
     );
 
-    await newUser.user.updateProfile({displayName: displayName.trim()});
+    const {uid} = newUserInfo.user;
+
+    await usersCollection.doc(uid).set({
+      name: displayName,
+    });
+
+    console.log(`User ${displayName} added to firestore`);
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
       console.log('That email address is already in use!');
