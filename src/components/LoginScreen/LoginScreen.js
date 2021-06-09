@@ -1,37 +1,14 @@
 import React, {useState} from 'react';
-import {Alert, View} from 'react-native';
-import {login} from '../../services/auth';
+import {View} from 'react-native';
 import Title from '../Unknown/Title/Title';
 import Button from '../Unknown/Button/Button';
 import Input from '../Unknown/Input/Input';
 import Notification from '../Unknown/Notification/Notification';
 import styles from './style';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = async () => {
-    if (!email) {
-      Alert.alert('Please, enter your email');
-      return;
-    } else if (!password) {
-      Alert.alert('Please, enter your password');
-      return;
-    }
-
-    try {
-      await login(email, password);
-      setEmail('');
-      setPassword('');
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const navigateToSignUpScreen = () => {
-    navigation.navigate('Sign Up');
-  };
 
   const onEmailInputChange = text => {
     setEmail(text);
@@ -39,6 +16,10 @@ const LoginScreen = ({navigation}) => {
 
   const onPasswordInputChange = text => {
     setPassword(text);
+  };
+
+  const handleSubmit = () => {
+    validateAndLogin(email, password);
   };
 
   return (

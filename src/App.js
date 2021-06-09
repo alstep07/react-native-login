@@ -5,9 +5,9 @@ import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {Stack} from './navigation';
 import auth from '@react-native-firebase/auth';
-import SignUpScreen from './components/SignUpScreen/SignUpScreen';
-import LoginScreen from './components/LoginScreen/LoginScreen';
-import HomeScreen from './components/HomeScreen/HomeScreen';
+import SignUp from './screens/SignUp/SignUp';
+import Login from './screens/Login/Login';
+import Home from './screens/Home/Home';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
@@ -45,11 +45,11 @@ const App = () => {
             headerShown: false,
           }}>
           {user ? (
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Home" component={Home} />
           ) : (
             <>
-              <Stack.Screen name="Login" component={LoginScreen} />
-              <Stack.Screen name="Sign Up" component={SignUpScreen} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Sign Up" component={SignUp} />
             </>
           )}
         </Stack.Navigator>

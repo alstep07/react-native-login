@@ -1,18 +1,10 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
-import {useUserContext} from '../../context';
-import {logout} from '../../services/auth';
 import logo from '../../assets/images/logo.png';
 import Button from '../Unknown/Button/Button';
 import styles from './style';
 
-const HomeScreen = () => {
-  const username = useUserContext();
-
-  const handlePress = () => {
-    logout();
-  };
-
+const HomeScreen = ({username, handlePress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
