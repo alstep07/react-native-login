@@ -30,7 +30,7 @@ const SignUpScreen = ({navigation}) => {
       setPassword('');
       setUsername('');
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 

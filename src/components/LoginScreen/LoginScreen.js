@@ -15,7 +15,7 @@ const LoginScreen = ({navigation}) => {
     if (!email) {
       Alert.alert('Please, enter your email');
       return;
-    } else if (!password || password.length < 5) {
+    } else if (!password) {
       Alert.alert('Please, enter your password');
       return;
     }
@@ -25,7 +25,7 @@ const LoginScreen = ({navigation}) => {
       setEmail('');
       setPassword('');
     } catch (err) {
-      Alert(err);
+      console.error(err.message);
     }
   };
 
