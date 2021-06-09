@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, Alert} from 'react-native';
 import {createNewUser} from '../../services/auth';
 import Title from '../Unknown/Title/Title';
 import Button from '../Unknown/Button/Button';
@@ -13,6 +13,17 @@ const SignUpScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
 
   const handleSubmit = async () => {
+    if (!email) {
+      Alert.alert('Email is required');
+      return;
+    } else if (!password || password.length < 5) {
+      Alert.alert('Weak password, minimum 5 chars');
+      return;
+    } else if (!username) {
+      Alert.alert('Name is required');
+      return;
+    }
+
     try {
       await createNewUser(email, password, username);
       setEmail('');

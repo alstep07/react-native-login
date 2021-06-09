@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import {login} from '../../services/auth';
 import Title from '../Unknown/Title/Title';
 import Button from '../Unknown/Button/Button';
@@ -12,12 +12,20 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async () => {
+    if (!email) {
+      Alert.alert('Please, enter your email');
+      return;
+    } else if (!password || password.length < 5) {
+      Alert.alert('Please, enter your password');
+      return;
+    }
+
     try {
       await login(email, password);
       setEmail('');
       setPassword('');
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      Alert(err);
     }
   };
 
