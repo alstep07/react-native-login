@@ -1,10 +1,12 @@
 import {StyleSheet} from 'react-native';
+import theme from '../../common/theme';
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 24,
     flex: 1,
     alignItems: 'center',
+    backgroundColor: theme.colors.mainBackground,
   },
   userContainer: {
     marginTop: 80,
@@ -23,12 +25,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 16,
     fontWeight: '700',
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.mainBackground,
     textAlign: 'center',
     borderRadius: 10,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowColor: theme.colors.shadow,
     shadowRadius: 22,
-    elevation: 10,
+    elevation: 20,
   },
 });
 
