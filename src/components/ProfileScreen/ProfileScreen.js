@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.png';
 import Button from '../Unknown/Button/Button';
 import styles from './style';
 
-const HomeScreen = ({username, handlePress}) => {
+const ProfileScreen = ({username, handlePress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
@@ -18,4 +18,4 @@ const HomeScreen = ({username, handlePress}) => {
   );
 };
 
-export default HomeScreen;
+export default ProfileScreen;
