@@ -16,20 +16,15 @@ const App = () => {
 
   const onAuthStateChanged = newUser => {
     setUser(newUser);
-
-    if (initializing) {
-      setInitializing(false);
-    }
+    initializing && setInitializing(false);
   };
 
   useEffect(() => {
-    if (user) {
-      const updateUserName = async () => {
-        const userNameFromDB = await getUserNameFromDB(user.uid);
-        setUsername(userNameFromDB);
-      };
-      updateUserName();
-    }
+    const updateUserName = async () => {
+      const userNameFromDB = await getUserNameFromDB(user.uid);
+      setUsername(userNameFromDB);
+    };
+    user && updateUserName();
   }, [user]);
 
   useEffect(() => {
