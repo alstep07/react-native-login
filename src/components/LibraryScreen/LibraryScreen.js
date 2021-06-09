@@ -12,6 +12,7 @@ const LibraryScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.date}>{today}</Text>
+      <Text style={styles.title}>Let's work on your intention</Text>
     </View>
   );
 };
