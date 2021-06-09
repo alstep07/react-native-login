@@ -4,7 +4,9 @@ import Title from '../Unknown/Title/Title';
 import Button from '../Unknown/Button/Button';
 import Input from '../Unknown/Input/Input';
 import Notification from '../Unknown/Notification/Notification';
+import LinearGradient from 'react-native-linear-gradient';
 import styles from './style';
+import theme from '../../common/theme';
 
 const SignUpScreen = ({navigateToLoginScreen, validateAndCreateUser}) => {
   const [email, setEmail] = useState('');
@@ -31,7 +33,11 @@ const SignUpScreen = ({navigateToLoginScreen, validateAndCreateUser}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={[theme.colors.bgGradientFrom, theme.colors.bgGradientTo]}
+      style={styles.container}
+      start={{x: 0, y: 0.4}}
+      end={{x: 1, y: 0.6}}>
       <View style={styles.titleContainer}>
         <Title text="Create an Account" />
       </View>
@@ -63,7 +69,7 @@ const SignUpScreen = ({navigateToLoginScreen, validateAndCreateUser}) => {
           onPress={navigateToLoginScreen}
         />
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 

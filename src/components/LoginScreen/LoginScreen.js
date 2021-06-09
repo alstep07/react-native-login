@@ -5,6 +5,8 @@ import Button from '../Unknown/Button/Button';
 import Input from '../Unknown/Input/Input';
 import Notification from '../Unknown/Notification/Notification';
 import styles from './style';
+import theme from '../../common/theme';
+import LinearGradient from 'react-native-linear-gradient';
 
 const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
   const [email, setEmail] = useState('');
@@ -23,7 +25,11 @@ const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={[theme.colors.bgGradientFrom, theme.colors.bgGradientTo]}
+      style={styles.container}
+      start={{x: 0, y: 0.4}}
+      end={{x: 1, y: 0.6}}>
       <View style={styles.titleContainer}>
         <Title text="Wellcome Back" />
       </View>
@@ -49,7 +55,7 @@ const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
           onPress={navigateToSignUpScreen}
         />
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
