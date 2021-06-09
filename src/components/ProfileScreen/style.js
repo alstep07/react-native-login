@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     flex: 1,
     alignItems: 'center',
-    backgroundColor: theme.colors.mainBackground,
+    backgroundColor: theme.colors.background,
   },
   userContainer: {
     marginTop: 80,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 16,
     fontWeight: '700',
-    backgroundColor: theme.colors.mainBackground,
+    backgroundColor: theme.colors.background,
     textAlign: 'center',
     borderRadius: 10,
     shadowColor: theme.colors.shadow,

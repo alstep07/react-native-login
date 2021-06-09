@@ -26,7 +26,7 @@ const LoginScreen = ({navigateToSignUpScreen, validateAndLogin}) => {
 
   return (
     <LinearGradient
-      colors={[theme.colors.bgGradientFrom, theme.colors.bgGradientTo]}
+      colors={[theme.colors.background, theme.colors.bgGradientTo]}
       style={styles.container}
       start={{x: 0, y: 0.4}}
       end={{x: 1, y: 0.6}}>

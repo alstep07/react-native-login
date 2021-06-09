@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 26,
     fontWeight: '500',
-    color: theme.colors.textDark,
+    color: theme.colors.darkGray,
   },
 });
 

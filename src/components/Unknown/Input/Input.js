@@ -2,6 +2,7 @@ import React from 'react';
 import {View, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
+import theme from '../../../common/theme';
 
 const Input = ({icon, placeholder, value, onChangeText}) => {
   return (
@@ -10,14 +11,14 @@ const Input = ({icon, placeholder, value, onChangeText}) => {
         style={styles.icon}
         name={icon}
         size={icon === 'envelope' ? 16 : 20}
-        color="#8A898E"
+        color={theme.colors.mediumGray}
       />
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}
-        placeholderTextColor="#8A898E"
+        placeholderTextColor={theme.colors.mediumGray}
       />
     </View>
   );

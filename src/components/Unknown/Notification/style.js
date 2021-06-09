@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import theme from '../../../common/theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,14 +11,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     lineHeight: 20,
-    color: 'rgba(138, 137, 142, 1)',
+    color: theme.colors.mediumGray,
   },
   link: {
     marginLeft: 5,
     fontSize: 14,
     lineHeight: 20,
     textDecorationLine: 'underline',
-    color: 'rgba(138, 137, 142, 1)',
+    color: theme.colors.mediumGray,
   },
 });
 

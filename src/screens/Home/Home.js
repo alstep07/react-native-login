@@ -16,8 +16,9 @@ const Home = () => {
 
   return (
     <Tab.Navigator
+      initialRouteName="Profile"
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
+        tabBarIcon: ({color, size}) => {
           let iconName;
 
           if (route.name === 'Library') {
@@ -31,8 +32,19 @@ const Home = () => {
       })}
       tabBarOptions={{
         activeTintColor: theme.colors.tabActive,
-        inactiveTintColor: theme.colors.tab,
+        inactiveTintColor: theme.colors.lightGray,
+        style: {
+          height: 83,
+        },
+        labelStyle: {
+          fontSize: 10,
+          marginTop: -10,
+        },
+        tabStyle: {
+          paddingBottom: 30,
+        },
       }}>
+      <Tab.Screen name="Library" component={LibraryScreen} />
       <Tab.Screen name="Profile">
         {props => (
           <ProfileScreen
@@ -42,7 +54,6 @@ const Home = () => {
           />
         )}
       </Tab.Screen>
-      <Tab.Screen name="Library" component={LibraryScreen} />
     </Tab.Navigator>
   );
 };
