@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
-import colors from '../../common/theme';
+import theme from '../../common/theme';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     paddingVertical: 22,
-    backgroundColor: colors.primary,
+    backgroundColor: theme.colors.primary,
     borderRadius: 10,
   },
   title: {

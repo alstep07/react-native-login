@@ -32,7 +32,10 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         {user ? (
           <Stack.Screen name="Home">
             {props => <HomeScreen {...props} user={user} />}
