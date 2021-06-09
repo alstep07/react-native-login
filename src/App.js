@@ -3,9 +3,9 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
-import {SignUpScreen} from './screens/SignUpScreen/SignUpScreen';
-import {LoginScreen} from './screens/LoginScreen/LoginScreen';
-import {HomeScreen} from './screens/HomeScreen/HomeScreen';
+import {SignUpScreen} from './components/SignUpScreen/SignUpScreen';
+import {LoginScreen} from './components/LoginScreen/LoginScreen';
+import {HomeScreen} from './components/HomeScreen/HomeScreen';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);

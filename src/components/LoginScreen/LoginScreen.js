@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {login} from '../../services/auth';
-import Title from '../../components/Title/Title';
-import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input';
-import Notification from '../../components/Notification/Notification';
+import Title from '../Unknown/Title/Title';
+import Button from '../Unknown/Button/Button';
+import Input from '../Unknown/Input/Input';
+import Notification from '../Unknown/Notification/Notification';
 import styles from './style';
 
 export const LoginScreen = ({navigation}) => {

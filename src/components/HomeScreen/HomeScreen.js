@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {logout} from '../../services/auth';
 import logo from '../../assets/images/logo.png';
-import Button from '../../components/Button/Button';
+import Button from '../Unknown/Button/Button';
 import styles from './style';
 
 export const HomeScreen = ({user}) => {
