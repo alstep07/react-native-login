@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
 import logo from '../../assets/images/logo.png';
-import Button from '../Unknown/Button/Button';
+import {Button} from '../Unknown';
 import styles from './style';
 
 const ProfileScreen = ({user, handlePress}) => {

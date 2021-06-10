@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import Typography from '../Unknown/Typography/Typography';
-import Button from '../Unknown/Button/Button';
-import Input from '../Unknown/Input/Input';
-import Notification from '../Unknown/Notification/Notification';
+import {Typography, Button, Input, Notification} from '../Unknown';
 import styles from './style';
 import theme from '../../common/theme';
 import LinearGradient from 'react-native-linear-gradient';
