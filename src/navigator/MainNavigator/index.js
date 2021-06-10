@@ -1,16 +1,19 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import TabsNavigator from './TabsNavigator/index.js';
+import Modal from '../../screens/Modal';
 
-export const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 const MainNavigator = () => {
   return (
     <Stack.Navigator
+      mode="modal"
       screenOptions={{
         headerShown: false,
       }}>
       <Stack.Screen name="Main" component={TabsNavigator} />
+      <Stack.Screen name="Modal" component={Modal} />
     </Stack.Navigator>
   );
 };

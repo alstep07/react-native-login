@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../../screens/Login';
 import SignUp from '../../screens/SignUp';
 
-export const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (

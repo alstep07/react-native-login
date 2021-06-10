@@ -4,15 +4,21 @@ import Library from '../../../screens/Library';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {screenOptions, tabsBarOptions} from './options';
 
-export const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-const TabsNavigator = () => {
+const TabsNavigator = ({navigation}) => {
+  const openModal = () => {
+    navigation.navigate('Modal');
+  };
+
   return (
     <Tab.Navigator
       initialRouteName="Profile"
       screenOptions={screenOptions}
       tabBarOptions={tabsBarOptions}>
-      <Tab.Screen name="Library" component={Library} />
+      <Tab.Screen name="Library">
+        {props => <Library {...props} openModal={openModal} />}
+      </Tab.Screen>
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
