@@ -10,7 +10,6 @@ const Library = () => {
   useEffect(() => {
     const getMeditations = async () => {
       const meditationsFromDB = await getMeditationsFromDB();
-      console.log(meditationsFromDB);
       setMeditations(meditationsFromDB);
     };
     getMeditations();
