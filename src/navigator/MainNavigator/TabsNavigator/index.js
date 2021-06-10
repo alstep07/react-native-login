@@ -6,19 +6,13 @@ import {screenOptions, tabsBarOptions} from './options';
 
 const Tab = createBottomTabNavigator();
 
-const TabsNavigator = ({navigation}) => {
-  const openModal = () => {
-    navigation.navigate('Modal');
-  };
-
+const TabsNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Profile"
       screenOptions={screenOptions}
       tabBarOptions={tabsBarOptions}>
-      <Tab.Screen name="Library">
-        {props => <Library {...props} openModal={openModal} />}
-      </Tab.Screen>
+      <Tab.Screen name="Library" component={Library} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

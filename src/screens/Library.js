@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import LibraryScreen from '../components/LibraryScreen';
 import {getCurrentDate} from '../utils/helpers';
 import {getMeditationsFromDB} from '../services/store/meditation';
-import {ModalContext} from '../context';
 
 const Library = ({openModal}) => {
   const [meditations, setMeditations] = useState([]);
@@ -16,11 +15,7 @@ const Library = ({openModal}) => {
     getMeditations();
   }, []);
 
-  return (
-    <ModalContext.Provider value={openModal}>
-      <LibraryScreen listData={meditations} currentDate={currentDate} />
-    </ModalContext.Provider>
-  );
+  return <LibraryScreen listData={meditations} currentDate={currentDate} />;
 };
 
 export default Library;
