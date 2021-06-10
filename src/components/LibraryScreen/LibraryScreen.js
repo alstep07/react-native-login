@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Dimensions, Animated} from 'react-native';
 import styles from './style';
 
 const getFormattedDate = dateObject => {
@@ -34,31 +35,50 @@ const DATA = [
   },
 ];
 
-const Card = ({title}) => (
-  <View>
-    <Text>{title}</Text>
-  </View>
-);
+const Card = ({title}) => {
+  return (
+    <View
+      style={{
+        height: 88,
+        width: 200,
+        padding: 16,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        shadowColor: '#777',
+        shadowRadius: 22,
+        elevation: 20,
+      }}>
+      <Text>{title}</Text>
+    </View>
+  );
+};
 
 const LibraryScreen = () => {
+  const screenWidth = Dimensions.get('window').width;
+  const today = getFormattedDate(new Date());
   const [scrollViewWidth, setScrollViewWidth] = useState(0);
   const boxWidth = scrollViewWidth * 0.8;
   const boxDistance = scrollViewWidth - boxWidth;
   const halfBoxDistance = boxDistance / 2;
-  const today = getFormattedDate(new Date());
+  const pan = React.useRef(new Animated.ValueXY()).current;
 
-  const renderItem = ({item}) => (
-    <Card
-      // eslint-disable-next-line react-native/no-inline-styles
-      style={{
-        height: '100%',
-        width: boxWidth,
-        borderRadius: 24,
-        backgroundColor: '#999',
-      }}
-      title={item.title}
-    />
-  );
+  const renderItem = ({item}) => {
+    return (
+      <View
+        style={{
+          height: 88,
+          width: boxWidth,
+          padding: 16,
+          backgroundColor: '#fff',
+          borderRadius: 10,
+          shadowColor: '#777',
+          shadowRadius: 22,
+          elevation: 20,
+        }}>
+        <Text>{item.title}</Text>
+      </View>
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -69,18 +89,21 @@ const LibraryScreen = () => {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{position: 'absolute', top: 300, height: 250}}
-        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          position: 'absolute',
+          top: 300,
+          height: 250,
+          width: screenWidth,
+        }}
         contentContainerStyle={{paddingVertical: 16}}
         contentInsetAdjustmentBehavior="never"
         snapToAlignment="center"
-        snapToInterval={boxWidth}
         decelerationRate="fast"
         automaticallyAdjustContentInsets={false}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={1}
+        snapToInterval={boxWidth}
         contentInset={{
           left: halfBoxDistance,
           right: halfBoxDistance,
@@ -89,6 +112,9 @@ const LibraryScreen = () => {
         onLayout={e => {
           setScrollViewWidth(e.nativeEvent.layout.width);
         }}
+        // onScroll={Animated.event([{nativeEvent: {contentOffset: {x: pan.x}}}], {
+        //   useNativeDriver: false,
+        // })}
       />
     </View>
   );
