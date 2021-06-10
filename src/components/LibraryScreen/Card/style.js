@@ -13,7 +13,13 @@ const styles = StyleSheet.create({
     shadowColor: theme.colors.shadow,
     elevation: 20,
   },
+  image: {
+    width: 56,
+    height: 56,
+    borderRadius: 5,
+  },
   textContainer: {
+    marginLeft: 16,
     flex: 1,
   },
   title: {
