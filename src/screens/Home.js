@@ -1,11 +1,11 @@
 import React from 'react';
-import {useUserContext} from '../../context';
-import {logout} from '../../services/auth';
-import ProfileScreen from '../../components/ProfileScreen/ProfileScreen';
-import LibraryScreen from '../../components/LibraryScreen/LibraryScreen';
-import {Tab} from '../../navigation';
+import {useUserContext} from '../context';
+import {logout} from '../services/auth';
+import ProfileScreen from '../components/ProfileScreen/ProfileScreen';
+import LibraryScreen from '../components/LibraryScreen/LibraryScreen';
+import {Tab} from '../navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import theme from '../../common/theme';
+import theme from '../common/theme';
 
 const Home = () => {
   const user = useUserContext();

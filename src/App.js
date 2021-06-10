@@ -3,11 +3,8 @@ import {UserContext} from './context';
 import {getUserFromDB} from './services/firestore';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
-import {Stack} from './navigation';
+import Navigator from './navigator';
 import auth from '@react-native-firebase/auth';
-import SignUp from './screens/SignUp/SignUp';
-import Login from './screens/Login/Login';
-import Home from './screens/Home/Home';
 
 const App = () => {
   const [initializing, setInitializing] = useState(true);
@@ -34,20 +31,8 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <UserContext.Provider value={user || {}}>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}>
-          {user ? (
-            <Stack.Screen name="Home" component={Home} />
-          ) : (
-            <>
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="Sign Up" component={SignUp} />
-            </>
-          )}
-        </Stack.Navigator>
+      <UserContext.Provider value={user}>
+        <Navigator />
       </UserContext.Provider>
     </NavigationContainer>
   );
