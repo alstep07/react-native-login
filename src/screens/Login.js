@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import {login} from '../services/auth';
-import LoginScreen from '../components/LoginScreen/LoginScreen';
+import LoginScreen from '../components/LoginScreen';
 
 const Login = ({navigation}) => {
   const validateAndLogin = async (email, password) => {

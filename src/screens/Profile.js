@@ -1,6 +1,6 @@
 import React from 'react';
 import {useUserContext} from '../context';
-import ProfileScreen from '../components/ProfileScreen/ProfileScreen';
+import ProfileScreen from '../components/ProfileScreen';
 import {logout} from '../services/auth';
 
 const Profile = () => {

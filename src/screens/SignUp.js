@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import {createNewUser} from '../services/auth';
-import SignUpScreen from '../components/SignUpScreen/SignUpScreen';
+import SignUpScreen from '../components/SignUpScreen';
 
 const SignUp = ({navigation}) => {
   const validateAndCreateUser = async (email, password, username) => {
