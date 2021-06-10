@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: theme.colors.darkGray,
   },
+  dorjer: {
+    marginTop: '15%',
+    alignSelf: 'center',
+  },
 });
 
 export default styles;

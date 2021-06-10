@@ -8,7 +8,9 @@ export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.85);
 const CarouselCardItem = ({item, index}) => {
   return (
     <View style={{...styles.container, width: ITEM_WIDTH}} key={index}>
+      <Text style={styles.subtitle}>{item.subtitle}</Text>
       <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.duration}>{item.duration}</Text>
     </View>
   );
 };
