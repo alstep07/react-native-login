@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     elevation: 20,
   },
   textContainer: {
-    flex: 3,
+    flex: 1,
   },
   title: {
     color: theme.colors.darkGray,
