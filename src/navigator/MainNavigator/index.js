@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import TabsNavigator from './TabsNavigator';
+import TabsNavigator from './TabsNavigator/index.js';
 
 export const Stack = createStackNavigator();
 
