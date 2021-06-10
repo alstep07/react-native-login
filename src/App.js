@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {UserContext} from './context';
-import {getUserFromDB} from './services/firestore';
+import {getUserFromDB} from './services/store/user';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import Navigator from './navigator';

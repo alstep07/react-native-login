@@ -1,6 +1,6 @@
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
-import {addUserToFirestore} from '../firestore';
+import {addUserToFirestore} from '../store/user';
 
 export const logout = async () => {
   try {
