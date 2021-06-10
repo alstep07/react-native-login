@@ -4,9 +4,12 @@ import theme from '../../common/theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.colors.background,
+  },
+  backgroundImage: {
+    flex: 3,
     paddingTop: 42,
     paddingHorizontal: 24,
-    backgroundColor: theme.colors.background,
   },
   date: {
     fontSize: 16,
@@ -18,6 +21,10 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     fontWeight: '500',
     color: theme.colors.darkGray,
+  },
+  carousel: {
+    backgroundColor: theme.colors.background,
+    flex: 2,
   },
 });
 

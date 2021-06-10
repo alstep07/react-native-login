@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     borderRadius: 10,
     shadowColor: theme.colors.shadow,
-    shadowRadius: 22,
     elevation: 20,
   },
 });

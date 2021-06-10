@@ -1,15 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text, FlatList, Dimensions, Animated} from 'react-native';
+import {View, Text, FlatList, ImageBackground, Animated} from 'react-native';
 import styles from './style';
+import backgroundImage from '../../assets/images/card.png';
 
 const LibraryScreen = ({listData, currentDate}) => {
-  const screenWidth = Dimensions.get('window').width;
   const [scrollViewWidth, setScrollViewWidth] = useState(0);
   const boxWidth = scrollViewWidth * 0.8;
   const boxDistance = scrollViewWidth - boxWidth;
   const halfBoxDistance = boxDistance / 2;
-  // const pan = React.useRef(new Animated.ValueXY()).current;
+  const pan = React.useRef(new Animated.ValueXY()).current;
 
   const renderItem = ({item}) => {
     return (
@@ -20,8 +20,6 @@ const LibraryScreen = ({listData, currentDate}) => {
           padding: 16,
           backgroundColor: '#fff',
           borderRadius: 10,
-          shadowColor: '#777',
-          shadowRadius: 22,
           elevation: 20,
         }}>
         <Text>{item.title}</Text>
@@ -31,19 +29,19 @@ const LibraryScreen = ({listData, currentDate}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.date}>{currentDate}</Text>
-      <Text style={styles.title}>Let's work on your intention</Text>
+      <ImageBackground
+        source={backgroundImage}
+        style={styles.backgroundImage}
+        resizeMode="stretch">
+        <Text style={styles.date}>{currentDate}</Text>
+        <Text style={styles.title}>Let's work on your intention</Text>
+      </ImageBackground>
       <FlatList
         horizontal
         data={listData}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        style={{
-          position: 'absolute',
-          top: 300,
-          height: 250,
-          width: screenWidth,
-        }}
+        style={styles.carousel}
         contentContainerStyle={{paddingVertical: 16}}
         contentInsetAdjustmentBehavior="never"
         snapToAlignment="center"
@@ -61,9 +59,9 @@ const LibraryScreen = ({listData, currentDate}) => {
         onLayout={e => {
           setScrollViewWidth(e.nativeEvent.layout.width);
         }}
-        // onScroll={Animated.event([{nativeEvent: {contentOffset: {x: pan.x}}}], {
-        //   useNativeDriver: false,
-        // })}
+        onScroll={Animated.event([{nativeEvent: {contentOffset: {x: pan.x}}}], {
+          useNativeDriver: false,
+        })}
       />
     </View>
   );
