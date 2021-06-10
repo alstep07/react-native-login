@@ -12,20 +12,15 @@ import Home from './screens/Home/Home';
 const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState({});
 
   const onAuthStateChanged = newUser => {
-    setUser(newUser);
+    const getUser = async () => {
+      const userFromDB = await getUserFromDB(newUser.uid);
+      setUser(userFromDB);
+    };
+    newUser && getUser();
     initializing && setInitializing(false);
   };
-
-  useEffect(() => {
-    const getUser = async () => {
-      const userFromDB = await getUserFromDB(user.uid);
-      setUserData(userFromDB);
-    };
-    user && getUser();
-  }, [user]);
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -39,7 +34,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <UserContext.Provider value={userData}>
+      <UserContext.Provider value={user}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
