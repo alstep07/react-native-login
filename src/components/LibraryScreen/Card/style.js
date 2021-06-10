@@ -4,7 +4,9 @@ import theme from '../../../common/theme';
 const styles = StyleSheet.create({
   container: {
     height: 88,
-    padding: 18,
+    paddingVertical: 16,
+    paddingLeft: 16,
+    paddingRight: 20,
     flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
