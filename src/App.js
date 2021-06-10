@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {UserContext} from './context';
-import {getUserNameFromDB} from './services/firestore';
+import {getUserFromDB} from './services/firestore';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {Stack} from './navigation';
@@ -12,7 +12,7 @@ import Home from './screens/Home/Home';
 const App = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
-  const [username, setUsername] = useState('');
+  const [userData, setUserData] = useState({});
 
   const onAuthStateChanged = newUser => {
     setUser(newUser);
@@ -20,11 +20,11 @@ const App = () => {
   };
 
   useEffect(() => {
-    const updateUserName = async () => {
-      const userNameFromDB = await getUserNameFromDB(user.uid);
-      setUsername(userNameFromDB);
+    const getUser = async () => {
+      const userFromDB = await getUserFromDB(user.uid);
+      setUserData(userFromDB);
     };
-    user && updateUserName();
+    user && getUser();
   }, [user]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <UserContext.Provider value={username}>
+      <UserContext.Provider value={userData}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,

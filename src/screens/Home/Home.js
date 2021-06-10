@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../../common/theme';
 
 const Home = () => {
-  const username = useUserContext();
+  const user = useUserContext();
 
   const handlePress = () => {
     logout();
@@ -47,11 +47,7 @@ const Home = () => {
       <Tab.Screen name="Library" component={LibraryScreen} />
       <Tab.Screen name="Profile">
         {props => (
-          <ProfileScreen
-            {...props}
-            username={username}
-            handlePress={handlePress}
-          />
+          <ProfileScreen {...props} user={user} handlePress={handlePress} />
         )}
       </Tab.Screen>
     </Tab.Navigator>
