@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, Text, FlatList, Dimensions, Animated} from 'react-native';
 import styles from './style';
 
-const LibraryScreen = ({cardsData, currentDate}) => {
+const LibraryScreen = ({listData, currentDate}) => {
   const screenWidth = Dimensions.get('window').width;
   const [scrollViewWidth, setScrollViewWidth] = useState(0);
   const boxWidth = scrollViewWidth * 0.8;
@@ -35,7 +35,7 @@ const LibraryScreen = ({cardsData, currentDate}) => {
       <Text style={styles.title}>Let's work on your intention</Text>
       <FlatList
         horizontal
-        data={cardsData}
+        data={listData}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         style={{

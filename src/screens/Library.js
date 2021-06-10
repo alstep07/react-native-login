@@ -1,12 +1,6 @@
 import React from 'react';
 import LibraryScreen from '../components/LibraryScreen';
-
-const getFormattedDate = dateObject => {
-  const [day, month, date] = dateObject.toDateString().split(' ');
-  return [day, date, month].join(' ');
-};
-
-const currentDate = getFormattedDate(new Date());
+import {getCurrentDate} from '../utils/helpers';
 
 const listData = [
   {
@@ -36,6 +30,8 @@ const listData = [
 ];
 
 const Library = () => {
+  const currentDate = getCurrentDate();
+
   return <LibraryScreen listData={listData} currentDate={currentDate} />;
 };
 
