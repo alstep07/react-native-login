@@ -18,7 +18,7 @@ const App = () => {
       const userFromDB = await getUserFromDB(newUser.uid);
       setUser(userFromDB);
     };
-    newUser && getUser();
+    newUser ? getUser() : setUser(null);
     initializing && setInitializing(false);
   };
 
@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={user || {}}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
