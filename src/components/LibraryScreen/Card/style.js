@@ -4,11 +4,17 @@ import theme from '../../../common/theme';
 const styles = StyleSheet.create({
   container: {
     height: 88,
-    padding: 16,
+    padding: 18,
+    flex: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: theme.colors.background,
     borderRadius: 10,
     shadowColor: theme.colors.shadow,
     elevation: 20,
+  },
+  textContainer: {
+    flex: 3,
   },
   title: {
     color: theme.colors.darkGray,

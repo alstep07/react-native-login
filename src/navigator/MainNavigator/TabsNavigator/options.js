@@ -3,7 +3,7 @@ import theme from '../../../common/theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const tabsBarOptions = {
-  activeTintColor: theme.colors.tabActive,
+  activeTintColor: theme.colors.pinkAccent,
   inactiveTintColor: theme.colors.lightGray,
   style: {
     height: 83,
