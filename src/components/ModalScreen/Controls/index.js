@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Pressable} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import Slider from '@react-native-community/slider';
 import styles from './style';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,9 +13,15 @@ const Controls = ({
   duration,
   soundCurrentTime,
   onSliderChange,
+  modalClose,
 }) => {
   return (
     <View style={styles.container}>
+      {isPaused && (
+        <Pressable style={styles.finishButton} onPress={modalClose}>
+          <Text style={styles.finishText}>Finish Later</Text>
+        </Pressable>
+      )}
       <Slider
         style={styles.slider}
         value={soundCurrentTime}

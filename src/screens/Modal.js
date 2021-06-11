@@ -13,8 +13,8 @@ const Modal = ({route, navigation}) => {
     setSoundCurrentTime(currentTime);
   };
 
-  const onSeek = ({currentTime}) => {
-    setSoundCurrentTime(currentTime);
+  const onSeek = ({currentTime, seekTime}) => {
+    console.log(currentTime, seekTime);
   };
 
   const onPausePress = () => {
