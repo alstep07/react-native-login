@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../../../common/theme';
-import {CustomIcon} from '../../../components/Unknown'
+import {CustomIcon} from '../../../components/Unknown';
 
 export const tabsBarOptions = {
   activeTintColor: theme.colors.pinkAccent,

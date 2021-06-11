@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from '../Card/Card';
