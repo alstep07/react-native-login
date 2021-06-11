@@ -12,9 +12,12 @@ const ModalScreen = ({
   subtitle,
   soundCurrentTime,
   modalClose,
-  onPausePress,
   isPaused,
   duration,
+  onPausePress,
+  onForwardPress,
+  onBackwardPress,
+  onSliderChange,
 }) => {
   const timerValue = getTimerValues(duration - soundCurrentTime);
 
@@ -28,9 +31,12 @@ const ModalScreen = ({
       <Controls
         isPaused={isPaused}
         onPausePress={onPausePress}
+        onForwardPress={onForwardPress}
+        onBackwardPress={onBackwardPress}
         title={isPaused ? 'Play' : 'Pause'}
         duration={duration}
         soundCurrentTime={soundCurrentTime}
+        onSliderChange={onSliderChange}
       />
     </ImageBackground>
   );

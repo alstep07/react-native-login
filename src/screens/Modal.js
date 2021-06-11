@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import ModalScreen from '../components/ModalScreen';
 import Video from 'react-native-video';
 
@@ -7,7 +7,13 @@ const Modal = ({route, navigation}) => {
   const [isPaused, setIsPaused] = useState(false);
   const [soundCurrentTime, setSoundCurrentTime] = useState(0);
 
+  const Player = useRef(null);
+
   const onProgress = ({currentTime}) => {
+    setSoundCurrentTime(currentTime);
+  };
+
+  const onSeek = ({currentTime}) => {
     setSoundCurrentTime(currentTime);
   };
 
@@ -15,13 +21,35 @@ const Modal = ({route, navigation}) => {
     setIsPaused(paused => !paused);
   };
 
+  const onForwardPress = () => {
+    if (soundCurrentTime + 15 < duration) {
+      Player.current.seek(soundCurrentTime + 15, 50);
+    } else {
+      Player.current.seek(duration, 50);
+    }
+  };
+
+  const onBackwardPress = () => {
+    Player.current.seek(soundCurrentTime - 15, 50);
+  };
+
   const modalClose = () => {
     navigation.navigate('Library');
   };
 
+  const onSliderChange = value => {
+    Player.current.seek(Math.floor(value));
+  };
+
   return (
     <>
-      <Video source={{uri: sound}} paused={isPaused} onProgress={onProgress} />
+      <Video
+        ref={ref => (Player.current = ref)}
+        source={{uri: sound}}
+        paused={isPaused}
+        onProgress={onProgress}
+        onSeek={onSeek}
+      />
       <ModalScreen
         title={title}
         subtitle={subtitle}
@@ -29,7 +57,10 @@ const Modal = ({route, navigation}) => {
         soundCurrentTime={soundCurrentTime}
         modalClose={modalClose}
         onPausePress={onPausePress}
+        onForwardPress={onForwardPress}
+        onBackwardPress={onBackwardPress}
         isPaused={isPaused}
+        onSliderChange={onSliderChange}
       />
     </>
   );

@@ -5,13 +5,10 @@ import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from '../Card/Card';
 import styles from './style';
 
 const CarouselCards = ({listData, openModal}) => {
-  const isCarousel = useRef(null);
-
   return (
     <View style={styles.container}>
       <Carousel
         layout="default"
-        ref={isCarousel}
         data={listData}
         activeSlideAlignment="center"
         renderItem={({item, index}) => (
