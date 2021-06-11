@@ -40,6 +40,7 @@
 		B9A966B9235647C383C0B098 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53A00B3B33C8423BA5D554B3 /* SourceSansPro-Regular.ttf */; };
 		6CC91DC56E804F48BE1D5478 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1864243923834619BB3D9D0E /* SourceSansPro-SemiBold.ttf */; };
 		BA91A34B2D46498AB30B2938 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1D868435041472C8FEE85F3 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		2C6BEDB58EC6466C94B4FEAD /* fontello.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F58B1C250404D469538A520 /* fontello.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		53A00B3B33C8423BA5D554B3 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-Regular.ttf"; path = "../src/assets/fonts/SourceSansPro-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1864243923834619BB3D9D0E /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-SemiBold.ttf"; path = "../src/assets/fonts/SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E1D868435041472C8FEE85F3 /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "SourceSansPro-SemiBoldItalic.ttf"; path = "../src/assets/fonts/SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3F58B1C250404D469538A520 /* fontello.ttf */ = {isa = PBXFileReference; name = "fontello.ttf"; path = "../src/assets/fonts/fontello.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				53A00B3B33C8423BA5D554B3 /* SourceSansPro-Regular.ttf */,
 				1864243923834619BB3D9D0E /* SourceSansPro-SemiBold.ttf */,
 				E1D868435041472C8FEE85F3 /* SourceSansPro-SemiBoldItalic.ttf */,
+				3F58B1C250404D469538A520 /* fontello.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				B9A966B9235647C383C0B098 /* SourceSansPro-Regular.ttf in Resources */,
 				6CC91DC56E804F48BE1D5478 /* SourceSansPro-SemiBold.ttf in Resources */,
 				BA91A34B2D46498AB30B2938 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
+				2C6BEDB58EC6466C94B4FEAD /* fontello.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

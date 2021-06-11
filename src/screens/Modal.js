@@ -30,6 +30,7 @@ const Modal = ({route, navigation}) => {
         timerValue={timerValue}
         modalClose={modalClose}
         onPausePress={onPausePress}
+        isPaused={isPaused}
       />
     </>
   );

@@ -11,16 +11,15 @@ const CarouselCards = ({listData, openModal}) => {
     <View style={styles.container}>
       <Carousel
         layout="default"
-        layoutCardOffset={10}
         ref={isCarousel}
         data={listData}
+        activeSlideAlignment="center"
         renderItem={({item, index}) => (
           <CarouselCardItem item={item} index={index} openModal={openModal} />
         )}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
         inactiveSlideShift={0}
-        useScrollView={true}
         inactiveSlideOpacity={1}
         inactiveSlideScale={1}
       />

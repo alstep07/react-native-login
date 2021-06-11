@@ -22,6 +22,7 @@ const ModalScreen = ({
       <ModalHeader title={title} subtitle={subtitle} modalClose={modalClose} />
       <Timer value={timerValue} />
       <Controls
+        isPaused={isPaused}
         onPausePress={onPausePress}
         title={isPaused ? 'Play' : 'Pause'}
       />
