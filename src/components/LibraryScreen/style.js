@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     color: theme.colors.darkGray,
   },
   dorjer: {
-    marginTop: '-25%',
     alignSelf: 'center',
   },
 });

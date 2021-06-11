@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
     paddingVertical: 60,
     paddingHorizontal: 24,
     flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 
