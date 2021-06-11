@@ -4,3 +4,10 @@ export const getCurrentDate = () => {
 };
 
 export const getReadbleTime = seconds => Math.floor(seconds / 60) + ' min';
+
+export const getTimerValues = time => {
+  const minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time % 60);
+  seconds = seconds === 0 ? '00' : seconds > 9 ? seconds : '0' + seconds;
+  return `${minutes}:${seconds}`;
+};
