@@ -8,8 +8,11 @@ import {getReadbleTime} from '../../../utils/helpers';
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
 
-const CarouselCardItem = ({item, index, onPress}) => {
+const CarouselCardItem = ({item, index, openModal}) => {
   const duration = getReadbleTime(item.duration);
+  const onPress = () => {
+    openModal(index);
+  };
 
   return (
     <View style={{...styles.container, width: ITEM_WIDTH}}>
