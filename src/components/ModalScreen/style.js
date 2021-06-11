@@ -5,11 +5,6 @@ const styles = StyleSheet.create({
     paddingVertical: 60,
     paddingHorizontal: 24,
     flex: 1,
-    backgroundColor: '#444',
-  },
-  title: {
-    fontSize: 24,
-    color: '#fff',
   },
 });
 
