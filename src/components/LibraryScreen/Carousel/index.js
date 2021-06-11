@@ -19,6 +19,8 @@ const CarouselCards = ({listData}) => {
         itemWidth={ITEM_WIDTH}
         inactiveSlideShift={0}
         useScrollView={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
       />
     </View>
   );

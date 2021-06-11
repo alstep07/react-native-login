@@ -3,7 +3,7 @@ import LibraryScreen from '../components/LibraryScreen';
 import {getCurrentDate} from '../utils/helpers';
 import {getMeditationsFromDB} from '../services/store/meditation';
 
-const Library = ({openModal}) => {
+const Library = () => {
   const [meditations, setMeditations] = useState([]);
   const currentDate = getCurrentDate();
 

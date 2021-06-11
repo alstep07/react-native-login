@@ -4,14 +4,17 @@ import theme from '../../../common/theme';
 const styles = StyleSheet.create({
   container: {
     height: 88,
+    paddingHorizontal: 6,
+  },
+  innerContainer: {
     paddingVertical: 16,
     paddingLeft: 16,
     paddingRight: 20,
     flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.background,
     borderRadius: 10,
+    backgroundColor: theme.colors.background,
     shadowColor: theme.colors.shadow,
     elevation: 20,
   },
