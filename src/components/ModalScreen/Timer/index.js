@@ -10,7 +10,7 @@ const Timer = () => {
         style={styles.image}
         source={dorjerImage}
         // eslint-disable-next-line react-native/no-inline-styles
-        imageStyle={{opacity: 0.5}}
+        imageStyle={{opacity: 0.3}}
         resizeMode="contain">
         <Text style={styles.timer}>6:45</Text>
       </ImageBackground>

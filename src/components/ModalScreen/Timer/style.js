@@ -11,10 +11,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   timer: {
-    fontSize: 80,
-    lineHeight: 93,
+    fontSize: 93,
     color: '#fff',
-    fontWeight: '400',
+    fontFamily: 'SourceSansPro-Light',
   },
 });
 

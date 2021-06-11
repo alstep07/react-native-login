@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+  },
   subtitle: {
     marginTop: 30,
     color: '#fff',

@@ -5,7 +5,7 @@ import styles from './style';
 
 const ModalHeader = ({title, subtitle, modalClose}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable onPress={modalClose}>
         <Text>
           <Icon name="close-outline" size={30} color="#fff" />
