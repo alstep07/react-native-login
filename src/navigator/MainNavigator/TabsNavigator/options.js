@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../../../common/theme';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {CustomIcon} from '../../../components/Unknown'
 
 export const tabsBarOptions = {
   activeTintColor: theme.colors.pinkAccent,
@@ -24,9 +24,9 @@ export const screenOptions = ({route}) => ({
     if (route.name === 'Library') {
       iconName = 'search';
     } else if (route.name === 'Profile') {
-      iconName = 'user-o';
+      iconName = 'user';
     }
 
-    return <Icon name={iconName} size={size} color={color} />;
+    return <CustomIcon name={iconName} size={size} color={color} />;
   },
 });

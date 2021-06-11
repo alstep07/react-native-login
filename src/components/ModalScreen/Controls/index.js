@@ -2,16 +2,13 @@ import React from 'react';
 import {View, Pressable} from 'react-native';
 import styles from './style';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {createIconSetFromFontello} from 'react-native-vector-icons';
-import fontelloConfig from '../../../config.json';
-
-const CustomIcon = createIconSetFromFontello(fontelloConfig);
+import {CustomIcon} from '../../Unknown';
 
 const Controls = ({onPausePress, isPaused}) => {
   return (
     <View style={styles.container}>
       <Pressable>
-        <CustomIcon name="backward" size={24} color="#fff" />
+        <CustomIcon name="backward" size={20} color="#fff" />
       </Pressable>
       <Pressable onPress={onPausePress}>
         <Icon
@@ -21,7 +18,7 @@ const Controls = ({onPausePress, isPaused}) => {
         />
       </Pressable>
       <Pressable>
-        <CustomIcon name="forward" size={24} color="#fff" />
+        <CustomIcon name="forward" size={20} color="#fff" />
       </Pressable>
     </View>
   );
