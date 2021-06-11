@@ -1,9 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import ModalScreen from '../components/ModalScreen';
 
-const Modal = () => {
-  // eslint-disable-next-line react-native/no-inline-styles
-  return <View style={{flex: 1, backgroundColor: '#000'}} />;
+const Modal = ({route, navigation}) => {
+  const meditation = route.params;
+  const modalClose = () => {
+    navigation.navigate('Library');
+  };
+
+  return <ModalScreen meditation={meditation} modalClose={modalClose} />;
 };
 
 export default Modal;

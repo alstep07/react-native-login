@@ -5,7 +5,7 @@ import styles from './style';
 import backgroundImage from '../../assets/images/card.png';
 import dorjerImage from '../../assets/images/dorjer.png';
 
-const LibraryScreen = ({listData, currentDate}) => {
+const LibraryScreen = ({listData, currentDate, openModal}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -18,7 +18,7 @@ const LibraryScreen = ({listData, currentDate}) => {
           <Image source={dorjerImage} />
         </View>
       </ImageBackground>
-      <CarouselCards listData={listData} />
+      <CarouselCards listData={listData} openModal={openModal} />
     </View>
   );
 };

@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react';
 import LibraryScreen from '../components/LibraryScreen';
 import {getCurrentDate} from '../utils/helpers';
 import {getMeditationsFromDB} from '../services/store/meditation';
-import {ModalContext} from '../context';
 
-const Library = ({openModal}) => {
+const Library = ({navigation}) => {
   const [meditations, setMeditations] = useState([]);
   const currentDate = getCurrentDate();
+  const openModal = params => {
+    navigation.navigate('Modal', params);
+  };
 
   useEffect(() => {
     const getMeditations = async () => {
@@ -17,9 +19,11 @@ const Library = ({openModal}) => {
   }, []);
 
   return (
-    <ModalContext.Provider value={openModal}>
-      <LibraryScreen listData={meditations} currentDate={currentDate} />
-    </ModalContext.Provider>
+    <LibraryScreen
+      listData={meditations}
+      currentDate={currentDate}
+      openModal={openModal}
+    />
   );
 };
 

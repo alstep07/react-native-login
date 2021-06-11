@@ -11,7 +11,7 @@ export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
 const CarouselCardItem = ({item, index, openModal}) => {
   const duration = getReadbleTime(item.duration);
   const onPress = () => {
-    openModal(index);
+    openModal(item);
   };
 
   return (

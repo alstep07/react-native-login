@@ -3,11 +3,9 @@ import {View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from '../Card/Card';
 import styles from './style';
-import {useModalContext} from '../../../context';
 
-const CarouselCards = ({listData}) => {
+const CarouselCards = ({listData, openModal}) => {
   const isCarousel = useRef(null);
-  const openModal = useModalContext();
 
   return (
     <View style={styles.container}>
