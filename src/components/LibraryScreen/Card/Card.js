@@ -8,12 +8,12 @@ import {getReadbleTime} from '../../../utils/helpers';
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
 
-const CarouselCardItem = ({item, index}) => {
+const CarouselCardItem = ({item, index, onPress}) => {
   const duration = getReadbleTime(item.duration);
 
   return (
     <View style={{...styles.container, width: ITEM_WIDTH}}>
-      <Pressable style={styles.innerContainer} key={index}>
+      <Pressable style={styles.innerContainer} key={index} onPress={onPress}>
         <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.textContainer}>
           <Text style={styles.subtitle}>{item.subtitle}</Text>

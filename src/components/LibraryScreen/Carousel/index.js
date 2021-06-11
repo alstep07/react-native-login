@@ -6,6 +6,9 @@ import styles from './style';
 
 const CarouselCards = ({listData}) => {
   const isCarousel = useRef(null);
+  const onPress = () => {
+    console.log('pressed');
+  };
 
   return (
     <View style={styles.container}>
@@ -14,7 +17,9 @@ const CarouselCards = ({listData}) => {
         layoutCardOffset={10}
         ref={isCarousel}
         data={listData}
-        renderItem={CarouselCardItem}
+        renderItem={({item, index}) => (
+          <CarouselCardItem item={item} index={index} onPress={onPress} />
+        )}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
         inactiveSlideShift={0}
