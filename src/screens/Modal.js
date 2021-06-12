@@ -13,24 +13,16 @@ const Modal = ({route, navigation}) => {
     setSoundCurrentTime(currentTime);
   };
 
-  const onSeek = ({seekTime}) => {
-    setSoundCurrentTime(seekTime);
-  };
-
   const onPausePress = () => {
     setIsPaused(paused => !paused);
   };
 
   const onForwardPress = () => {
-    if (soundCurrentTime + 15 < duration) {
-      Player.current.seek(soundCurrentTime + 15, 50);
-    } else {
-      Player.current.seek(duration, 50);
-    }
+    Player.current.seek(soundCurrentTime + 15);
   };
 
   const onBackwardPress = () => {
-    Player.current.seek(soundCurrentTime - 15, 50);
+    Player.current.seek(soundCurrentTime - 15);
   };
 
   const modalClose = () => {
@@ -48,7 +40,6 @@ const Modal = ({route, navigation}) => {
         source={{uri: sound}}
         paused={isPaused}
         onProgress={onProgress}
-        onSeek={onSeek}
       />
       <ModalScreen
         title={title}

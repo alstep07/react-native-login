@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   controlsContainer: {
     marginTop: 20,
-    width: '70%',
+    width: '60%',
     height: 80,
     flexDirection: 'row',
     justifyContent: 'space-between',
