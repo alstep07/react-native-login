@@ -1,7 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {getUserFromDB} from '../services/store/user';
-import {View, Text} from 'react-native';
 
 export const UserContext = createContext(null);
 
