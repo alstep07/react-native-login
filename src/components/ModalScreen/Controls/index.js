@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import styles from './style';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -32,9 +32,9 @@ const Controls = ({
         onValueChange={handleSliderChange}
       />
       <View style={styles.controlsContainer}>
-        <Pressable onPress={handleBackwardPress}>
+        <TouchableOpacity onPress={handleBackwardPress}>
           <CustomIcon name="backward" size={20} color="#fff" />
-        </Pressable>
+        </TouchableOpacity>
         <Pressable onPress={handlePausePress}>
           <Icon
             name={isPaused ? 'ios-play-circle-sharp' : 'md-pause-circle-sharp'}
@@ -42,9 +42,9 @@ const Controls = ({
             color="#fff"
           />
         </Pressable>
-        <Pressable onPress={handleForwardPress}>
+        <TouchableOpacity onPress={handleForwardPress}>
           <CustomIcon name="forward" size={20} color="#fff" />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );
