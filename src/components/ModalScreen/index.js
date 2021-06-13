@@ -10,17 +10,17 @@ import {getTimerValues} from '../../utils/helpers';
 const ModalScreen = ({
   title,
   subtitle,
-  soundCurrentTime,
+  progress,
   modalClose,
   isPaused,
   duration,
-  onPausePress,
-  onForwardPress,
-  onBackwardPress,
-  onSliderChange,
+  handlePausePress,
+  handleForwardPress,
+  handleBackwardPress,
+  handleSliderChange,
 }) => {
-  const timerValue = getTimerValues(duration - soundCurrentTime);
   const imageOpacity = isPaused ? 0.8 : 1;
+  const timerValue = getTimerValues(duration - progress * duration);
 
   return (
     <View style={styles.container}>
@@ -37,13 +37,12 @@ const ModalScreen = ({
         <Timer value={timerValue} isPaused={isPaused} />
         <Controls
           isPaused={isPaused}
-          onPausePress={onPausePress}
-          onForwardPress={onForwardPress}
-          onBackwardPress={onBackwardPress}
+          handlePausePress={handlePausePress}
+          handleForwardPress={handleForwardPress}
+          handleBackwardPress={handleBackwardPress}
           title={isPaused ? 'Play' : 'Pause'}
-          duration={duration}
-          soundCurrentTime={soundCurrentTime}
-          onSliderChange={onSliderChange}
+          progress={progress}
+          handleSliderChange={handleSliderChange}
           modalClose={modalClose}
         />
       </ImageBackground>

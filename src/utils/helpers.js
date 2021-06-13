@@ -10,5 +10,5 @@ export const getTimerValues = time => {
   let seconds = Math.floor(time % 60);
   minutes = minutes < 0 ? 0 : minutes;
   seconds = seconds <= 0 ? '00' : seconds > 9 ? seconds : '0' + seconds;
-  return `${minutes}:${seconds}`;
+  return `-${minutes}:${seconds}`;
 };

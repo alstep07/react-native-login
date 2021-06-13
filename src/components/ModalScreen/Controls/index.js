@@ -6,13 +6,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {CustomIcon} from '../../Unknown';
 
 const Controls = ({
-  onPausePress,
-  onForwardPress,
-  onBackwardPress,
+  handlePausePress,
+  handleForwardPress,
+  handleBackwardPress,
   isPaused,
-  duration,
-  soundCurrentTime,
-  onSliderChange,
+  progress,
+  handleSliderChange,
   modalClose,
 }) => {
   return (
@@ -24,26 +23,26 @@ const Controls = ({
       )}
       <Slider
         style={styles.slider}
-        value={soundCurrentTime}
+        value={progress}
         minimumValue={0}
-        maximumValue={duration}
+        maximumValue={1}
         minimumTrackTintColor="#fff"
         maximumTrackTintColor="#ddd"
         thumbTintColor="#fff"
-        onValueChange={onSliderChange}
+        onValueChange={handleSliderChange}
       />
       <View style={styles.controlsContainer}>
-        <Pressable onPress={onBackwardPress}>
+        <Pressable onPress={handleBackwardPress}>
           <CustomIcon name="backward" size={20} color="#fff" />
         </Pressable>
-        <Pressable onPress={onPausePress}>
+        <Pressable onPress={handlePausePress}>
           <Icon
             name={isPaused ? 'ios-play-circle-sharp' : 'md-pause-circle-sharp'}
             size={80}
             color="#fff"
           />
         </Pressable>
-        <Pressable onPress={onForwardPress}>
+        <Pressable onPress={handleForwardPress}>
           <CustomIcon name="forward" size={20} color="#fff" />
         </Pressable>
       </View>

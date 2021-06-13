@@ -3,55 +3,75 @@ import ModalScreen from '../components/ModalScreen';
 import Video from 'react-native-video';
 
 const Modal = ({route, navigation}) => {
-  const {title, subtitle, sound, duration} = route.params;
+  const {title, subtitle, sound} = route.params;
   const [isPaused, setIsPaused] = useState(false);
-  const [soundCurrentTime, setSoundCurrentTime] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const Player = useRef(null);
-
-  const onProgress = ({currentTime}) => {
-    setSoundCurrentTime(currentTime);
-  };
-
-  const onPausePress = () => {
-    setIsPaused(paused => !paused);
-  };
-
-  const onForwardPress = () => {
-    Player.current.seek(soundCurrentTime + 15);
-  };
-
-  const onBackwardPress = () => {
-    Player.current.seek(soundCurrentTime - 15);
-  };
 
   const modalClose = () => {
     navigation.navigate('Library');
   };
 
-  const onSliderChange = value => {
-    Player.current.seek(Math.floor(value));
+  const handleLoad = meta => {
+    setDuration(meta.duration);
+  };
+
+  const handleProgress = ({currentTime}) => {
+    setProgress(currentTime / duration);
+  };
+
+  const handleEnd = () => {
+    setIsPaused(true);
+  };
+
+  const handlePausePress = () => {
+    if (progress >= 0.99) {
+      Player.current.seek(0);
+    }
+    setIsPaused(paused => !paused);
+  };
+
+  const handleForwardPress = () => {
+    const seekValue = progress * duration + 15;
+    if (seekValue >= duration) {
+      setProgress(1);
+      handleEnd();
+    } else {
+      Player.current.seek(seekValue);
+    }
+  };
+
+  const handleBackwardPress = () => {
+    Player.current.seek(progress * duration - 15);
+  };
+
+  const handleSliderChange = value => {
+    Player.current.seek(value * duration);
   };
 
   return (
     <>
       <Video
         ref={ref => (Player.current = ref)}
+        onLoad={handleLoad}
         source={{uri: sound}}
         paused={isPaused}
-        onProgress={onProgress}
+        onProgress={handleProgress}
+        onEnd={handleEnd}
       />
       <ModalScreen
         title={title}
         subtitle={subtitle}
         duration={duration}
-        soundCurrentTime={soundCurrentTime}
+        progress={progress}
         modalClose={modalClose}
-        onPausePress={onPausePress}
-        onForwardPress={onForwardPress}
-        onBackwardPress={onBackwardPress}
+        handlePausePress={handlePausePress}
+        handleForwardPress={handleForwardPress}
+        handleBackwardPress={handleBackwardPress}
         isPaused={isPaused}
-        onSliderChange={onSliderChange}
+        handleSliderChange={handleSliderChange}
       />
     </>
   );
