@@ -1,6 +1,10 @@
-import {createContext, useContext} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
+import auth from '@react-native-firebase/auth';
+import {getUserFromDB} from './services/store/user';
 
-const createContext = () => {
+export const UserContext = createContext(null);
+
+export const UserContextProvider = ({children}) => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
 
@@ -23,8 +27,7 @@ const createContext = () => {
     return null;
   }
 
-  return 
-}
-
-export const UserContext = createContext({});
-export const useUserContext = () => useContext(UserContext);
+  return (
+    <UserContext.provider value={user}>{...children}</UserContext.provider>
+  );
+};

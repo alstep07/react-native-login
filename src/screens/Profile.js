@@ -1,10 +1,10 @@
-import React from 'react';
-import {useUserContext} from '../context';
+import React, {useContext} from 'react';
+import {UserContext} from '../context';
 import ProfileScreen from '../components/ProfileScreen';
 import {logout} from '../services/auth';
 
 const Profile = () => {
-  const user = useUserContext();
+  const user = useContext(UserContext);
 
   const handlePress = () => {
     logout();
