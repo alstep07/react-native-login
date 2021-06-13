@@ -1,10 +1,10 @@
-import React from 'react';
-import {useUserContext} from '../context';
+import React, {useContext} from 'react';
+import {UserContext} from '../context';
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
 
 const Navigator = () => {
-  const user = useUserContext();
+  const user = useContext(UserContext);
 
   return user ? <MainNavigator /> : <AuthNavigator />;
 };
